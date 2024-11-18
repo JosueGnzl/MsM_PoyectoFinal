@@ -12,6 +12,9 @@ body, html {
     background-color: var(--color-cream);
     color: var(--color-purple-dark);
 }
+html {
+    scroll-behavior: smooth;
+}
 
 .page-container {
     min-height: 100vh;
@@ -28,7 +31,7 @@ body, html {
 
 .hero-section {
     position: relative;
-    background-image: url('/placeholder.svg');
+    background-image: url("../Imagenes/inicio.jpeg");
     background-size: cover;
     background-position: center;
 }
@@ -53,15 +56,32 @@ header {
     padding: 20px 0;
 }
 
+#main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background-color: transparent;
+    transition: background-color 0.3s, padding 0.3s;
+    z-index: 1000;
+}
+
+#main-header.sticky {
+    position: fixed;
+    top: 0;
+    background-color: var(--color-purple-dark);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-h1 {
-    font-size: 24px;
-    font-weight: bold;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 nav ul {
@@ -113,37 +133,32 @@ main {
     margin-top: 40px;
 }
 
-.main-content {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.left-column, .right-column {
-    flex: 1;
-    min-width: 300px;
-}
-
-.left-column {
-    padding-right: 20px;
-}
-
-h3 {
-    font-size: 24px;
-    color: var(--color-purple-dark);
-    margin-bottom: 20px;
-}
-
-.about-content, .feature-card {
-    background-color: rgba(139, 93, 255, 0.1);
+.about-content {
+    background-color: rgba(139, 93, 255, 0.1); 
     border: 2px solid var(--color-purple-medium);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
+    transition: background-color 0.5s, transform 0.3s;
+    cursor: pointer;
 }
 
-.feature-cards {
-    display: grid;
-    gap: 20px;
+.about-content:hover {
+    background-color: rgba(139, 93, 255, 0.2); 
+    transform: translateY(-5px); 
+    border-color: var(--color-purple-light); 
+}
+
+
+
+.feature-card {
+    background-color: rgba(139, 93, 255, 0.1); 
+    border: 2px solid var(--color-purple-medium);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.5s, transform 0.3s;
+    cursor: pointer;
 }
 
 .feature-card h4 {
@@ -151,18 +166,85 @@ h3 {
     margin-top: 0;
 }
 
-.screenshots-container img {
-    width: 100%;
+
+.feature-card:hover {
+    background-color: rgba(139, 93, 255, 0.2); 
+    transform: translateY(-5px); 
+    border-color: var(--color-purple-light); 
+}
+#screenshots {
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* Galería de imágenes */
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-slider {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.5s ease;
+    width: 80%; 
+}
+
+
+.gallery-item {
+    overflow: hidden; 
     border-radius: 8px;
+    flex-shrink: 0;
+    width: calc(33.33% - 10px); 
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, border-color 0.3s;
+    cursor: pointer;
     border: 2px solid var(--color-purple-light);
-    margin-bottom: 20px;
+}
+
+
+.gallery-item img:hover {
+    transform: scale(1.1); 
+    border-color: var(--color-purple-medium);
+}
+.gallery-btn {
+    background-color: var(--color-purple-medium);
+    border: none;
+    color: var(--color-cream);
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gallery-btn:hover {
+    background-color: var(--color-purple-light);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
 }
 
 footer {
     background-color: var(--color-purple-dark);
     color: var(--color-cream);
     padding: 20px 0;
-    margin-top: 40px;
     text-align: center;
 }
 
@@ -184,25 +266,73 @@ footer {
     right: 0;
     background-color: var(--color-purple-medium);
 }
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+/* Sección "Acerca de Nosotros" */
+#about-us {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: rgba(139, 93, 255, 0.05);
 }
 
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-    }
+#about-us h3 {
+    font-size: 32px;
+    color: var(--color-purple-dark);
+    margin-bottom: 40px;
+}
 
-    .left-column {
-        padding-right: 0;
+/* Contenedor de las tarjetas del equipo */
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para cada tarjeta del equipo */
+.team-card {
+    background-color: var(--color-cream);
+    border: 2px solid var(--color-purple-light);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen circular */
+.team-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%; /* Forma circular */
+    border: 3px solid var(--color-purple-medium);
+    margin-bottom: 20px;
+}
+
+/* Estilos para el texto dentro de las tarjetas */
+.team-card h4 {
+    font-size: 24px;
+    color: var(--color-purple-medium);
+    margin-bottom: 10px;
+}
+
+.team-card .role {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.team-card .contact {
+    color: var(--color-purple-dark);
+    font-size: 14px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .team-container {
+        grid-template-columns: 1fr;
     }
 }
