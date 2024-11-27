@@ -180,7 +180,7 @@ main {
     padding: 40px 0;
 }
 
-/* Galería de imágenes */
+/* Galería de imagenes */
 .gallery-container {
     display: flex;
     align-items: center;
@@ -286,7 +286,7 @@ video{
     margin-bottom: 40px;
 }
 
-/* Contenedor de las tarjetas del equipo */
+
 .team-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -295,7 +295,6 @@ video{
     margin: 0 auto;
 }
 
-/* Estilos para cada tarjeta del equipo */
 .team-card {
     background-color: var(--color-cream);
     border: 2px solid var(--color-purple-light);
@@ -324,12 +323,12 @@ video{
 }
 
 
-/* Imagen circular */
+
 .team-card img {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 50%; /* Forma circular */
+    border-radius: 50%; 
     border: 3px solid var(--color-purple-medium);
     margin-bottom: 20px;
 }
@@ -350,14 +349,14 @@ video{
     color: var(--color-purple-dark);
     font-size: 14px;
 }
-/* Botón de menú para móviles: oculto por defecto */
+
 .menu-toggle {
-    display: none; /* No se muestra en pantallas grandes */
+    display: none; 
 }
 
-/* Media Query para móviles */
+/* Media Query para moviles */
 @media screen and (max-width: 768px) {
-    /* Evitar desplazamiento horizontal */
+    
     body, html {
         overflow-x: hidden;
     }
@@ -365,12 +364,12 @@ video{
         width: 100%;
         height: 90%;
     }
-    /* Ocultar el menú horizontal en móviles */
+    
     nav ul {
         display: none;
     }
 
-    /* Mostrar el botón tipo hamburguesa */
+    /* Mostrar el boton tipo hamburguesa */
     .menu-toggle {
         display: block;
         font-size: 24px;
@@ -386,11 +385,11 @@ video{
 
     /* Menú desplegable horizontal */
     nav {
-        position: fixed; /* Fijo para que se desplace junto con la vista */
+        position: fixed; 
         top: 0;
         right: 0;
-        height: 100%; /* Ocupa toda la altura de la pantalla */
-        width: 0; /* Comienza cerrado */
+        height: 100%; 
+        width: 0; 
         background-color: var(--color-purple-dark);
         overflow-x: hidden;
         overflow-y: auto;
@@ -399,7 +398,7 @@ video{
     }
 
     nav.active {
-        width: 250px; /* Se abre hacia la izquierda */
+        width: 250px; 
     }
 
     .nav-links {
@@ -428,7 +427,7 @@ video{
         background-color: var(--color-purple-medium);
     }
 
-    /* Mantener desplazamiento horizontal en capturas de pantalla */
+  
     .gallery-container {
         display: flex;
         overflow-x: auto;
@@ -442,7 +441,7 @@ video{
         scroll-snap-align: center;
     }
 
-    /* Mantener desplazamiento horizontal en desarrolladores */
+ 
     .team-container {
         display: flex;
         overflow-x: auto;
@@ -462,34 +461,34 @@ video{
         height: auto;
     }
 
-    /* Ocultar flechas de navegación en móviles */
+   
     .gallery-btn {
         display: none;
     }
 
-    /* Ajustar contenedores al ancho de pantalla */
+   
     .page-container, .container, .hero-section, nav {
         max-width: 100%;
         overflow-x: hidden;
-        box-sizing: border-box; /* Ajustar contenido al ancho */
+        box-sizing: border-box; 
     }
 }
 
 /* Media Query para tablets */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    /* Evitar desplazamiento horizontal */
+  
     body, html {
         overflow-x: hidden;
     }
 
-    /* Ajustar contenedores al ancho de pantalla */
+  
     .page-container, .container, .hero-section, nav {
         max-width: 100%;
         overflow-x: hidden;
-        box-sizing: border-box; /* Ajustar contenido al ancho */
+        box-sizing: border-box; 
     }
 
-    /* Menú desplegable horizontal */
+    /* Menu desplegable */
     .menu-toggle {
         display: block;
         font-size: 28px;
@@ -516,7 +515,7 @@ video{
     }
 
     nav.active {
-        width: 300px; /* Expandir desde la derecha */
+        width: 300px; 
     }
 
     .nav-links {
@@ -545,7 +544,7 @@ video{
         background-color: var(--color-purple-medium);
     }
 
-    /* Ajustes específicos para la galería */
+   
     .gallery-container {
         display: flex;
         overflow-x: auto;
@@ -555,11 +554,11 @@ video{
     }
 
     .gallery-item {
-        flex: 0 0 80%; /* Cada imagen ocupa el 80% del ancho */
+        flex: 0 0 80%; 
         scroll-snap-align: center;
     }
 
-    /* Ajustes para la sección desarrolladores */
+   
     .team-container {
         display: flex;
         overflow-x: auto;
@@ -569,7 +568,7 @@ video{
     }
 
     .team-card {
-        flex: 0 0 80%; /* Cada tarjeta ocupa el 80% del ancho */
+        flex: 0 0 80%; 
         scroll-snap-align: center;
     }
 
@@ -579,7 +578,7 @@ video{
         height: auto;
     }
 
-    /* Ocultar flechas de navegación en tablets */
+   
     .gallery-btn {
         display: none;
     }
